@@ -1,0 +1,15 @@
+image:
+  registry: docker.io
+  repository: library/postgres
+  tag: 15-alpine
+auth:
+  username: "admin"
+  password: "admin123"
+  database: "blazing"
+primary:
+  persistence:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
+  podSecurityContext:
+    enabled: false
