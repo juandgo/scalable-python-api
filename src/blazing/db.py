@@ -2,7 +2,7 @@ from os import environ
 from typing import Annotated
 
 from fastapi import Depends
-from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel import SQLModel, create_engine, Session
 
 username = environ.get("POSTGRES_USER")
 password = environ.get("POSTGRES_PASSWORD")
@@ -15,9 +15,10 @@ engine = create_engine(postgres_url)
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
+
 def get_session():
     with Session(engine) as session:
         yield session
-        
-    
+
+
 SessionType = Annotated[Session, Depends(get_session)]

@@ -17,7 +17,7 @@ docker build -t api .
 Build the **development** image:
 
 ```bash
-docker build -f Dockerfile --target prod -t lean-dev .
+docker build -f Dockerfile --target dev -t lean-dev .
 ```
 
 Build the **production** image:
@@ -30,7 +30,7 @@ docker build -f Dockerfile --target prod -t lean-prod .
 
 ## 2. Deploy to Kubernetes with Kustomize
 
-Apply all Kubernetes manifests (with Helm enabled):
+Apply all Kubernetes manifests (with Helm enabled), you have to be located in deploy directory:
 
 ```bash
 kustomize build --enable-helm . | kubectl apply -f -
@@ -75,7 +75,7 @@ kubectl -n blazing port-forward services/api-service 8080:80
 The API will be available at:
 
 ```
-http://localhost:8080
+http://localhost:8080/docs 
 ```
 
 ---
