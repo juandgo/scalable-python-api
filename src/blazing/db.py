@@ -4,7 +4,7 @@ from typing import Annotated
 from fastapi import Depends
 from sqlmodel import Session, SQLModel, create_engine
 
-username = environ.get("POSTGRES_USERNAME")
+username = environ.get("POSTGRES_USER")
 password = environ.get("POSTGRES_PASSWORD")
 host = environ.get("POSTGRES_HOST")
 db = environ.get("POSTGRES_DB")
